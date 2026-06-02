@@ -1,0 +1,21 @@
+{
+  "name": "home-portal",
+  "version": "1.0.0",
+  "description": "Unified home server portal — single login + app launcher",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "express-session": "^1.19.0",
+    "sql.js": "^1.14.1"
+  }
+}

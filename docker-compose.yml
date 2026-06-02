@@ -1,0 +1,16 @@
+services:
+  home-portal:
+    build: .
+    container_name: home-portal
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - portal-data:/app/data
+    environment:
+      - NODE_ENV=local
+      - SESSION_SECRET=change-me-to-a-random-string
+      - DB_PATH=/app/data/home_portal.db
+
+volumes:
+  portal-data:

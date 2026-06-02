@@ -1,0 +1,60 @@
+:root,[data-theme="dark"]{
+  --bg-primary:#0f1729;--bg-card:#162036;--bg-input:#0f1729;--border-color:#1e3054;
+  --accent:#6366f1;--accent-hover:#4f46e5;
+  --green:#00c853;--red:#ff1744;
+  --text-primary:#e8eaf6;--text-muted:#7986cb;
+  --shadow:rgba(0,0,0,.3);--bg-hover:rgba(255,255,255,.05);
+}
+[data-theme="light"]{
+  --bg-primary:#f0f2f5;--bg-card:#fff;--bg-input:#f5f6fa;--border-color:#dde1e8;
+  --accent:#4f46e5;--accent-hover:#4338ca;
+  --green:#1b8a3e;--red:#c62828;
+  --text-primary:#1a1a2e;--text-muted:#6b7280;
+  --shadow:rgba(0,0,0,.08);--bg-hover:rgba(0,0,0,.04);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;}
+
+.navbar{background:var(--bg-card);border-bottom:1px solid var(--border-color);padding:.8rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+.navbar h1{font-size:1.2rem;font-weight:700;display:flex;align-items:center;gap:.5rem;}
+.navbar .actions{display:flex;gap:.4rem;align-items:center;}
+.btn-icon{background:none;border:1px solid var(--border-color);color:var(--text-muted);border-radius:8px;padding:.3rem .6rem;cursor:pointer;font-size:.85rem;transition:all .15s;}
+.btn-icon:hover{border-color:var(--accent);color:var(--text-primary);}
+
+.greeting{text-align:center;padding:2.5rem 1rem 1rem;font-size:1.4rem;font-weight:300;color:var(--text-muted);}
+.greeting strong{color:var(--text-primary);font-weight:700;}
+.greeting .time{font-size:2rem;font-weight:700;color:var(--text-primary);display:block;margin-bottom:.3rem;}
+
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:1rem;padding:1rem 2rem 2rem;max-width:1000px;margin:0 auto;}
+
+.app-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:1.3rem;cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block;}
+.app-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px var(--shadow);}
+.app-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.app-card .card-icon{font-size:2rem;margin-bottom:.5rem;}
+.app-card .card-name{font-size:1.05rem;font-weight:700;margin-bottom:.25rem;}
+.app-card .card-desc{font-size:.8rem;color:var(--text-muted);line-height:1.4;}
+.app-card .card-edit{position:absolute;top:.8rem;right:2rem;opacity:0;transition:opacity .15s;background:none;border:none;cursor:pointer;font-size:.8rem;color:var(--text-muted);padding:.1rem .3rem;}
+.app-card:hover .card-edit{opacity:.7;}
+.app-card .card-edit:hover{opacity:1;color:var(--accent);}
+.app-card .card-status{position:absolute;top:1rem;right:1rem;width:8px;height:8px;border-radius:50%;}
+.status-up{background:var(--green);}
+.status-down{background:var(--red);}
+.status-checking{background:var(--text-muted);animation:pulse 1s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+.app-card .card-url{font-size:.7rem;color:var(--text-muted);margin-top:.5rem;opacity:.6;}
+
+/* Add app card */
+.add-card{border:2px dashed var(--border-color);background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:140px;color:var(--text-muted);font-size:.9rem;}
+.add-card:hover{border-color:var(--accent);color:var(--accent);}
+.add-card .plus{font-size:2rem;margin-bottom:.3rem;}
+
+/* Modal */
+.modal-content{background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;}
+.form-control,.form-select{background:var(--bg-input);border:1px solid var(--border-color);color:var(--text-primary);}
+.form-control:focus{background:var(--bg-input);border-color:var(--accent);color:var(--text-primary);box-shadow:0 0 0 .2rem rgba(99,102,241,.2);}
+.form-label{font-size:.8rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;}
+.btn-accent{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;}
+.btn-accent:hover{background:var(--accent-hover);border-color:var(--accent-hover);color:#fff;}
+
+@media(max-width:600px){.app-grid{padding:1rem;grid-template-columns:1fr;}.greeting{padding:1.5rem 1rem .5rem;font-size:1.1rem;}.greeting .time{font-size:1.5rem;}}
